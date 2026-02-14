@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "f8a3a3d1-6118-431e-9471-b8ddf0aa7cf6",
+      "agentId": "health-assistant",
+      "name": "Weekly Fitness Summary",
+      "enabled": true,
+      "createdAtMs": 1770955433078,
+      "updatedAtMs": 1770955579040,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 18 * * 0",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "timeoutSeconds": 120,
+        "kind": "agentTurn",
+        "message": "读取根目录下的 fitness.log 文件，总结过去一周（周一至周日）的健身情况，包括总天数、各运动项的总量及天气影响，然后发给我。"
+      },
+      "delivery": {
+        "to": "telegram:8304964064",
+        "mode": "announce"
+      },
+      "state": {
+        "nextRunAtMs": 1771149600000,
+        "lastError": "Error: All models failed (1): alibaba-cloud/qwen3-max-2026-01-23: Provider alibaba-cloud is in cooldown (all profiles unavailable) (rate_limit)",
+        "lastRunAtMs": 1770955578752,
+        "lastStatus": "error",
+        "lastDurationMs": 288,
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "64a2c87d-5a91-4c0e-a23c-02d456beeff2",
+      "agentId": "health-assistant",
+      "name": "Monthly Fitness Summary",
+      "enabled": true,
+      "createdAtMs": 1770955433116,
+      "updatedAtMs": 1770955433116,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 10 1 * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "读取根目录下的 fitness.log 文件，总结过去一个月的健身数据，分析训练频率、运动偏好和进度，并给出下个月的建议，然后发给我。",
+        "timeoutSeconds": 120
+      },
+      "delivery": {
+        "mode": "announce",
+        "to": "telegram:8304964064"
+      },
+      "state": {
+        "nextRunAtMs": 1772330400000
+      }
+    },
+    {
+      "id": "6a505492-7a8a-4316-914b-200030cf54aa",
+      "agentId": "health-assistant",
+      "name": "Weekly Fitness Summary (Secondary)",
+      "enabled": true,
+      "createdAtMs": 1770955560085,
+      "updatedAtMs": 1770955579310,
+      "schedule": {
+        "expr": "0 18 * * 0",
+        "kind": "cron",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "message": "读取根目录下的 fitness.log 文件，总结过去一周（周一至周日）的健身情况，包括总天数、各运动项的总量及天气影响，然后发给我。",
+        "kind": "agentTurn",
+        "timeoutSeconds": 120
+      },
+      "delivery": {
+        "mode": "announce",
+        "to": "telegram:8505689440"
+      },
+      "state": {
+        "nextRunAtMs": 1771149600000,
+        "lastError": "Error: All models failed (1): alibaba-cloud/qwen3-max-2026-01-23: Provider alibaba-cloud is in cooldown (all profiles unavailable) (rate_limit)",
+        "lastRunAtMs": 1770955579085,
+        "lastStatus": "error",
+        "lastDurationMs": 225,
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "202aed5c-6d3a-4242-8717-e4e9c617303d",
+      "agentId": "health-assistant",
+      "name": "Monthly Fitness Summary (Secondary)",
+      "enabled": true,
+      "createdAtMs": 1770955560120,
+      "updatedAtMs": 1770955560120,
+      "schedule": {
+        "tz": "Asia/Shanghai",
+        "kind": "cron",
+        "expr": "0 10 1 * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "timeoutSeconds": 120,
+        "message": "读取根目录下的 fitness.log 文件，总结过去一个月的健身数据，分析训练频率、运动偏好和进度，并给出下个月的建议，然后发给我。",
+        "kind": "agentTurn"
+      },
+      "delivery": {
+        "to": "telegram:8505689440",
+        "mode": "announce"
+      },
+      "state": {
+        "nextRunAtMs": 1772330400000
+      }
+    },
+    {
+      "id": "7d08f38c-19e2-4b9b-ae0f-9ffb2393bed3",
+      "agentId": "health-assistant",
+      "name": "Weekly Gateway Restart",
+      "enabled": true,
+      "createdAtMs": 1770990484666,
+      "updatedAtMs": 1770990484666,
+      "schedule": {
+        "expr": "0 4 * * 1",
+        "kind": "cron",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "每周维护任务执行（记忆分层保存 + Gateway 重启）：\n\n**第一步：记忆分层保存**\n1. 回顾本周 memory/YYYY-MM-DD.md 文件内容\n2. 判断每条信息的持久价值：\n   - 影响未来行为的决策/偏好 → 写入 MEMORY.md\n   - 长期配置（模型、工具规则）→ 写入 MEMORY.md  \n   - 关键教训和规则 → 写入 MEMORY.md\n   - 日常琐碎/临时任务/一次性查询 → 留在短期记忆文件\n3. 问自己：\"这条信息一周后还重要吗？\"\n4. 同步更新 MEMORY.md，保持精简\n\n**第二步：检查运行中任务**\n5. 执行 `sessions_list` 检查是否有运行中的子代理\n6. 如果有任务运行中，延迟重启并等待\n\n**第三步：执行重启**\n7. 确认无运行中任务后，调用 `gateway` 工具的 `restart` 动作\n8. 重启完成后通知用户\n\n**原则**：先保存（分层），再检查，后重启。不中断任务。",
+        "timeoutSeconds": 300
+      },
+      "delivery": {
+        "mode": "announce",
+        "to": "telegram:8304964064"
+      },
+      "state": {
+        "nextRunAtMs": 1771185600000
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "profiles": {
+    "alibaba-cloud:default": {
+      "type": "api_key",
+      "provider": "alibaba-cloud",
+      "key": "$api-key"
+    },
+    "google:default": {
+      "type": "api_key",
+      "provider": "google",
+      "key": "AIzaSyD_xAKgO-DjXTnDGH1xXBLlT53l2UALApU"
+    },
+    "kimi-coding:default": {
+      "type": "api_key",
+      "provider": "kimi-coding",
+      "key": "sk-kimi-ioZpPSMXWrl8P0004VrSbVKux93hRBAhL1EVv9PBymEomEybkDdLs9xlAB0ctdGZ"
+    }
+  },
+  "lastGood": {
+    "alibaba-cloud": "alibaba-cloud:default",
+    "google": "google:default",
+    "kimi-coding": "kimi-coding:default"
+  },
+  "usageStats": {
+    "alibaba-cloud:default": {
+      "lastUsed": 1770941915474,
+      "errorCount": 5,
+      "lastFailureAt": 1770961519935,
+      "failureCounts": {
+        "auth": 5
+      },
+      "cooldownUntil": 1770965119935
+    },
+    "google:default": {
+      "lastUsed": 1770961530209,
+      "errorCount": 0,
+      "lastFailureAt": 1770887716160
+    },
+    "kimi-coding:default": {
+      "lastUsed": 1771040175392,
+      "errorCount": 0
+    }
+  }
+}

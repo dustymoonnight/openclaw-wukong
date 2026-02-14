@@ -1,0 +1,29 @@
+# OpenClaw Backup - Git Ignore
+
+# Credentials and sensitive files
+credentials/
+exec-approvals.json
+openclaw.json.bak*
+
+# Nested git repositories (treated as submodules or ignored)
+extensions/qqbot/
+extensions/wecom/
+workspace/
+workspace-main/
+
+# Large media files (optional - uncomment if media folder is too large)
+# media/
+
+# Node modules or dependencies
+node_modules/
+*.log.old
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*~
