@@ -1,7 +1,7 @@
 {
   "agent:health-assistant:main": {
     "sessionId": "53624cc5-6afe-4dcf-8577-f1383cbf5e7d",
-    "updatedAt": 1771040298901,
+    "updatedAt": 1771040753499,
     "systemSent": true,
     "skillsSnapshot": {
       "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>qqbot-cron</name>\n    <description>QQ Bot 智能提醒技能。支持一次性提醒、周期性任务、自动降级确保送达。可设置、查询、取消提醒。</description>\n    <location>/home/admin/.openclaw/extensions/qqbot/skills/qqbot-cron/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-media</name>\n    <description>QQ Bot 媒体发送指南。教 AI 如何发送图片给用户。</description>\n    <location>/home/admin/.openclaw/extensions/qqbot/skills/qqbot-media/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/opt/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/opt/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts (no API key required).</description>\n    <location>/opt/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>chinese-tts</name>\n    <description>中文语音合成工具。当用户要求用语音回复、发送语音消息、或需要将文字转换为中文语音时使用。使用 gTTS (Google Text-to-Speech) 生成标准普通话语音。</description>\n    <location>/home/admin/.openclaw/workspace/skills/chinese-tts/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>searxng</name>\n    <description>Privacy-respecting metasearch using your local SearXNG instance. Search the web, images, news, and more without external API dependencies.</description>\n    <location>/home/admin/.openclaw/workspace/skills/searxng/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>tavily</name>\n    <description>AI-optimized web search via Tavily API. Returns concise, relevant results for AI agents.</description>\n    <location>/home/admin/.openclaw/workspace/skills/tavily-search/SKILL.md</location>\n  </skill>\n</available_skills>",
@@ -112,9 +112,9 @@
     "model": "k2p5",
     "contextTokens": 262144,
     "abortedLastRun": false,
-    "inputTokens": 4268,
-    "outputTokens": 1322,
-    "totalTokens": 109228,
+    "inputTokens": 437,
+    "outputTokens": 269,
+    "totalTokens": 53941,
     "chatType": "direct",
     "origin": {
       "provider": "webchat",
@@ -127,7 +127,7 @@
     "authProfileOverrideCompactionCount": 0,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1771040084717,
+      "generatedAt": 1771040664042,
       "sessionId": "53624cc5-6afe-4dcf-8577-f1383cbf5e7d",
       "sessionKey": "agent:health-assistant:main",
       "provider": "kimi-coding",
@@ -139,8 +139,8 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 24986,
-        "projectContextChars": 13165,
+        "chars": 25063,
+        "projectContextChars": 13242,
         "nonProjectContextChars": 11821
       },
       "injectedWorkspaceFiles": [
@@ -204,8 +204,8 @@
           "name": "MEMORY.md",
           "path": "/home/admin/.openclaw/workspace/MEMORY.md",
           "missing": false,
-          "rawChars": 666,
-          "injectedChars": 666,
+          "rawChars": 743,
+          "injectedChars": 743,
           "truncated": false
         }
       ],
@@ -390,7 +390,9 @@
           }
         ]
       }
-    }
+    },
+    "memoryFlushAt": 1771040473913,
+    "memoryFlushCompactionCount": 0
   },
   "agent:health-assistant:cron:f8a3a3d1-6118-431e-9471-b8ddf0aa7cf6": {
     "sessionId": "e62930a0-961f-425d-9ab6-dc15ae2fab94",

@@ -5,12 +5,6 @@ credentials/
 exec-approvals.json
 openclaw.json.bak*
 
-# Nested git repositories (treated as submodules or ignored)
-extensions/qqbot/
-extensions/wecom/
-workspace/
-workspace-main/
-
 # Large media files (optional - uncomment if media folder is too large)
 # media/
 

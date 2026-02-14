@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "searxng": {
+      "version": "1.0.3",
+      "installedAt": 1770711623158
+    },
+    "tavily-search": {
+      "version": "1.0.0",
+      "installedAt": 1770881120044
+    },
+    "email": {
+      "version": "1.1.0",
+      "installedAt": 1770887319784
+    }
+  }
+}
