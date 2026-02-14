@@ -5,60 +5,56 @@ description: Automatically backup OpenClaw configuration to GitHub. Use when use
 
 # Auto-Backup Skill
 
-Automatically backup OpenClaw configuration with intelligent, privacy-safe commit messages.
+定时自动备份 OpenClaw 配置到 GitHub，生成隐私安全的提交信息。
 
-## When to Use
+## 备份模式
 
-- User explicitly requests backup
-- After making significant configuration changes
-- Before system updates or maintenance
-- Periodically to ensure data safety
+**定时备份**（默认）：仅在每周一凌晨 4:00 的 Gateway 维护重启前自动执行
+- 整合在 Weekly Gateway Restart 任务中
+- 先分层保存记忆，再执行备份，最后重启
+- 避免频繁提交，保持仓库历史简洁
 
-## How to Use
+**手动备份**：用户可随时手动触发
 
-### Manual Backup
+## 使用方式
+
+### 手动触发
 
 ```bash
 bash workspace/skills/auto-backup/scripts/backup.sh
 ```
 
-### What Gets Backed Up
+### 定时自动备份流程（每周一 04:00）
 
-- `workspace/` - All configurations, memories, skills, fitness logs
-- `agents/` - Agent configurations and sessions
-- `extensions/` - Plugin configurations
-- `cron/` - Scheduled tasks
-- Excludes: `credentials/` (security sensitive files)
+1. **记忆分层保存** - 压缩短期记忆到长期记忆
+2. **自动备份** - 执行本 skill 的 backup.sh
+3. **检查运行任务** - 确保无任务中断
+4. **Gateway 重启** - 完成维护
 
-### Commit Message Rules
+## 提交信息规则
 
-Messages are automatically generated and:
-- ✅ Describe change type (fitness log, memory, skills, etc.)
-- ✅ Include file count if multiple files changed
-- ✅ Include timestamp (MM-DD HH:MM format)
-- ❌ Never contain personal information or conversation content
-- ❌ Never exceed 200 characters
+- ✅ 描述变更类型（fitness log、memory、skills 等）
+- ✅ 多文件时显示文件数
+- ✅ 包含时间戳（MM-DD HH:MM 格式）
+- ❌ 不包含任何个人信息或对话内容
+- ❌ 不超过 200 字符
 
-### Message Examples
+### 示例
 
 - `Update fitness log (3 files) - 02-14 11:30`
 - `Update skills and configurations - 02-14 10:15`
 - `Routine backup (5 files) - 02-13 18:00`
 
-## Automation
+## 备份内容
 
-To enable automatic backups:
+- `workspace/` - 配置、记忆、skills、fitness logs
+- `agents/` - Agent 配置和会话
+- `extensions/` - 插件配置
+- `cron/` - 定时任务
+- 排除: `credentials/`（安全敏感文件）
 
-1. Add to cron (runs daily at 2 AM):
-```bash
-0 2 * * * cd /home/admin/.openclaw && bash workspace/skills/auto-backup/scripts/backup.sh
-```
+## 隐私保证
 
-2. Or add to HEARTBEAT.md for periodic checks
-
-## Privacy Guarantee
-
-This skill guarantees:
-- No user messages or conversation content in commit messages
-- No personal identifiers in commit messages
-- Only generic change descriptions (file types, counts, timestamps)
+- 提交信息不含用户消息或对话内容
+- 不含个人身份信息
+- 仅显示通用变更描述（文件类型、数量、时间戳）
