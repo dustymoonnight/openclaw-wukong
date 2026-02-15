@@ -10,9 +10,10 @@
 
 ### 平台操作规则
 - **Telegram 媒体发送**：直接使用原生 `message` 工具，禁止使用 QQBot 的 `<qqimg>` 标签
-- **语音回复**：使用 gTTS 生成中文语音，支持语音消息格式
+- **语音回复**：使用 gTTS (Google Text-to-Speech) 生成中文语音，支持语音消息格式
 - **双账号推送**：重要通知需同时发送到 8304964064 和 8505689440
 - **图片生成**：使用 nano-banana-pro 生成图片后，直接通过 `message` 工具发送给用户，无需询问确认
+- **桌面自动化**：已安装 computer-use skill，支持 Xvfb + Chrome 浏览器控制（截图、点击、输入、滚动、拖拽）
 
 ### 自动化任务
 - **健康助手周报**：每周日 18:00 自动发送健身总结
@@ -23,6 +24,12 @@
 - 每日记忆写入 `memory/YYYY-MM-DD.md`
 - 长期重要信息（决策、偏好、配置）需同步更新到 `MEMORY.md`
 - 健身数据持久化存储在 `fitness.log`
+
+### Git 备份配置
+- **主配置仓库**：`/home/admin/.openclaw/` → agents、extensions、cron、identity、media
+- **工作空间仓库**：`/home/admin/.openclaw/workspace/` → memory、skills、fitness.log、SOUL.md
+- **GitHub 远程**：`dustymoonnight/openclaw-wukong`
+- **敏感文件**：已排除 credentials 和嵌套仓库
 
 ### 代理协作规则
 - **健身记录**：用户要求记录健身情况时，调用 `health-assistant` 代理处理
