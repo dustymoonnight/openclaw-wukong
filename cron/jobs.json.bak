@@ -7,7 +7,7 @@
       "name": "Weekly Fitness Summary",
       "enabled": true,
       "createdAtMs": 1770955433078,
-      "updatedAtMs": 1770955579040,
+      "updatedAtMs": 1771149654124,
       "schedule": {
         "kind": "cron",
         "expr": "0 18 * * 0",
@@ -25,12 +25,11 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1771149600000,
-        "lastError": "Error: All models failed (1): alibaba-cloud/qwen3-max-2026-01-23: Provider alibaba-cloud is in cooldown (all profiles unavailable) (rate_limit)",
-        "lastRunAtMs": 1770955578752,
-        "lastStatus": "error",
-        "lastDurationMs": 288,
-        "consecutiveErrors": 1
+        "nextRunAtMs": 1771754400000,
+        "lastRunAtMs": 1771149600012,
+        "lastStatus": "ok",
+        "lastDurationMs": 54112,
+        "consecutiveErrors": 0
       }
     },
     {
@@ -66,7 +65,7 @@
       "name": "Weekly Fitness Summary (Secondary)",
       "enabled": true,
       "createdAtMs": 1770955560085,
-      "updatedAtMs": 1770955579310,
+      "updatedAtMs": 1771149774127,
       "schedule": {
         "expr": "0 18 * * 0",
         "kind": "cron",
@@ -84,12 +83,12 @@
         "to": "telegram:8505689440"
       },
       "state": {
-        "nextRunAtMs": 1771149600000,
-        "lastError": "Error: All models failed (1): alibaba-cloud/qwen3-max-2026-01-23: Provider alibaba-cloud is in cooldown (all profiles unavailable) (rate_limit)",
-        "lastRunAtMs": 1770955579085,
+        "nextRunAtMs": 1771754400000,
+        "lastRunAtMs": 1771149654124,
         "lastStatus": "error",
-        "lastDurationMs": 225,
-        "consecutiveErrors": 1
+        "lastDurationMs": 120003,
+        "consecutiveErrors": 2,
+        "lastError": "Error: cron: job execution timed out"
       }
     },
     {
@@ -135,7 +134,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "每周维护任务执行（记忆分层保存 + Gateway 重启）：\n\n**第一步：记忆分层保存**\n1. 回顾本周 memory/YYYY-MM-DD.md 文件内容\n2. 判断每条信息的持久价值：\n   - 影响未来行为的决策/偏好 → 写入 MEMORY.md\n   - 长期配置（模型、工具规则）→ 写入 MEMORY.md  \n   - 关键教训和规则 → 写入 MEMORY.md\n   - 日常琐碎/临时任务/一次性查询 → 留在短期记忆文件\n3. 问自己：\"这条信息一周后还重要吗？\"\n4. 同步更新 MEMORY.md，保持精简\n\n**第二步：检查运行中任务**\n5. 执行 `sessions_list` 检查是否有运行中的子代理\n6. 如果有任务运行中，延迟重启并等待\n\n**第三步：执行重启**\n7. 确认无运行中任务后，调用 `gateway` 工具的 `restart` 动作\n8. 重启完成后通知用户\n\n**原则**：先保存（分层），再检查，后重启。不中断任务。",
+        "message": "每周维护任务执行（记忆分层保存 + 自动备份 + Gateway 重启）：\n\n**第一步：记忆分层保存**\n1. 回顾本周 memory/YYYY-MM-DD.md 文件内容\n2. 判断每条信息的持久价值：\n   - 影响未来行为的决策/偏好 → 写入 MEMORY.md\n   - 长期配置（模型、工具规则）→ 写入 MEMORY.md  \n   - 关键教训和规则 → 写入 MEMORY.md\n   - 日常琐碎/临时任务/一次性查询 → 留在短期记忆文件\n3. 问自己：\"这条信息一周后还重要吗？\"\n4. 同步更新 MEMORY.md，保持精简\n\n**第二步：自动备份**\n5. 执行 `cd /home/admin/.openclaw && bash workspace/skills/auto-backup/scripts/backup.sh`\n6. 确认备份成功（检查 git commit 和 push 输出）\n\n**第三步：检查运行中任务**\n7. 执行 `sessions_list` 检查是否有运行中的子代理\n8. 如果有任务运行中，延迟重启并等待\n\n**第四步：执行重启**\n9. 确认无运行中任务后，调用 `gateway` 工具的 `restart` 动作\n10. 重启完成后通知用户\n\n**原则**：先保存（分层），再备份，检查任务，后重启。不中断任务。",
         "timeoutSeconds": 300
       },
       "delivery": {
@@ -143,7 +142,8 @@
         "to": "telegram:8304964064"
       },
       "state": {
-        "nextRunAtMs": 1771185600000
+        "nextRunAtMs": 1771185600000,
+        "runningAtMs": 1771185600004
       }
     }
   ]

@@ -1,27 +1,4 @@
 {
   "version": 2,
-  "runs": {
-    "9b3c7e8d-2662-48ae-bf93-396b2769105c": {
-      "runId": "9b3c7e8d-2662-48ae-bf93-396b2769105c",
-      "childSessionKey": "agent:health-assistant:subagent:5f588de1-17c2-4261-a04b-ac16fc0b2ea2",
-      "requesterSessionKey": "agent:health-assistant:main",
-      "requesterOrigin": {
-        "channel": "telegram",
-        "to": "telegram:8304964064",
-        "accountId": "default"
-      },
-      "requesterDisplayKey": "agent:health-assistant:main",
-      "task": "记录用户今天的健身数据：\n时间：早上9点50到11点\n内容：\n- 动态拉伸 15分钟\n- Tabata：滑盘 + 棒铃 15分钟\n\n请记录到 fitness.log 并发送确认消息给用户（Telegram ID: 8304964064 和 8505689440）",
-      "cleanup": "keep",
-      "createdAt": 1771039638534,
-      "startedAt": 1771039639917,
-      "archiveAtMs": 1771043238534,
-      "cleanupHandled": true,
-      "endedAt": 1771039653982,
-      "outcome": {
-        "status": "ok"
-      },
-      "cleanupCompletedAt": 1771039660218
-    }
-  }
+  "runs": {}
 }

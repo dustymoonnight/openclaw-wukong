@@ -7,7 +7,7 @@
       "name": "Weekly Fitness Summary",
       "enabled": true,
       "createdAtMs": 1770955433078,
-      "updatedAtMs": 1770955579040,
+      "updatedAtMs": 1771149654124,
       "schedule": {
         "kind": "cron",
         "expr": "0 18 * * 0",
@@ -25,12 +25,11 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1771149600000,
-        "lastError": "Error: All models failed (1): alibaba-cloud/qwen3-max-2026-01-23: Provider alibaba-cloud is in cooldown (all profiles unavailable) (rate_limit)",
-        "lastRunAtMs": 1770955578752,
-        "lastStatus": "error",
-        "lastDurationMs": 288,
-        "consecutiveErrors": 1
+        "nextRunAtMs": 1771754400000,
+        "lastRunAtMs": 1771149600012,
+        "lastStatus": "ok",
+        "lastDurationMs": 54112,
+        "consecutiveErrors": 0
       }
     },
     {
@@ -66,7 +65,7 @@
       "name": "Weekly Fitness Summary (Secondary)",
       "enabled": true,
       "createdAtMs": 1770955560085,
-      "updatedAtMs": 1770955579310,
+      "updatedAtMs": 1771149774127,
       "schedule": {
         "expr": "0 18 * * 0",
         "kind": "cron",
@@ -84,12 +83,12 @@
         "to": "telegram:8505689440"
       },
       "state": {
-        "nextRunAtMs": 1771149600000,
-        "lastError": "Error: All models failed (1): alibaba-cloud/qwen3-max-2026-01-23: Provider alibaba-cloud is in cooldown (all profiles unavailable) (rate_limit)",
-        "lastRunAtMs": 1770955579085,
+        "nextRunAtMs": 1771754400000,
+        "lastRunAtMs": 1771149654124,
         "lastStatus": "error",
-        "lastDurationMs": 225,
-        "consecutiveErrors": 1
+        "lastDurationMs": 120003,
+        "consecutiveErrors": 2,
+        "lastError": "Error: cron: job execution timed out"
       }
     },
     {
@@ -143,7 +142,8 @@
         "to": "telegram:8304964064"
       },
       "state": {
-        "nextRunAtMs": 1771185600000
+        "nextRunAtMs": 1771185600000,
+        "runningAtMs": 1771185600004
       }
     }
   ]
